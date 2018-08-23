@@ -17,6 +17,10 @@ catkin_python_setup()
 catkin_install_python(PROGRAMS scripts/xacro
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
+if (WIN32)
+  add_windows_python_exe_helper(xacro)
+endif()
+
 ## For backwards compatibility we also install as xacro.py
 #  The roslaunch $(find ...) expects the script to be in the package directory, 
 #  and in catkin the package direcory is /share.
