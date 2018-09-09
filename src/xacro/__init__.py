@@ -38,6 +38,7 @@ import re
 import sys
 import ast
 import math
+import resource_retriever
 
 from copy import deepcopy
 from .color import warning, error, message
@@ -83,6 +84,7 @@ def abs_filename_spec(filename_spec):
     Prepend the dirname of the currently processed file
     if filename_spec is not yet absolute
     """
+    filename_spec = resource_retriever.get_filename(filename_spec, False)
     if not os.path.isabs(filename_spec):
         parent_filename = filestack[-1]
         basedir = os.path.dirname(parent_filename) if parent_filename else '.'
