@@ -1014,6 +1014,8 @@ def print_location(filestack, err=None, file=sys.stderr):
 
 def process_file(input_file_name, **kwargs):
     """main processing pipeline"""
+    input_file_name = resource_retriever.get_filename(input_file_name, False)
+
     # initialize file stack for error-reporting
     restore_filestack([input_file_name])
     # parse the document into a xml.dom tree
