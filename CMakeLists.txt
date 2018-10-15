@@ -19,6 +19,7 @@ catkin_install_python(PROGRAMS scripts/xacro
 
 if (WIN32)
   add_windows_python_exe_helper(xacro)
+  install(TARGETS xacro_exe DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 endif()
 
 ## For backwards compatibility we also install as xacro.py
